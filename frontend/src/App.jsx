@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Signup from "./pages/signup";
 import Login from "./pages/login";
 import useAuthStore from "./store/authStore";
+import OAuth2Callback from "./pages/OAuth2Callback";
 
 const App = () => {
   const { isAutehnticated } = useAuthStore();
@@ -19,6 +20,7 @@ const App = () => {
           path="/signup"
           element={isAutehnticated ? <Navigate to="/" /> : <Signup />}
         />
+        <Route path="/oauth2/callback" element={<OAuth2Callback />} />
         <Route
           path="/"
           element={isAutehnticated ? <Home /> : <Navigate to="/login" />}

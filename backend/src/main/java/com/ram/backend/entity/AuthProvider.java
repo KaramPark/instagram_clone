@@ -1,4 +1,5 @@
 package com.ram.backend.entity;
 
-public class AuthProvider {
+public enum AuthProvider {
+    LOCAL, GOOGLE, GITHUB
 }

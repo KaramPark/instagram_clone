@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { authService } from "../services/auth";
 
 const useAuthStore = create((set) => ({
-  user: "",
+  user: authService.getCurrentUser(),
   isAuthenticated: authService.isAuthenticated(),
   loading: false,
   error: null,
@@ -22,6 +22,7 @@ const useAuthStore = create((set) => ({
         loading: false,
         error: err.response?.data?.message || "Login failed",
       });
+      throw err;
     }
   },
 
@@ -54,6 +55,11 @@ const useAuthStore = create((set) => ({
   },
 
   setAuth: (authData) => set(authData),
+
+  updateUser: (userData) => {
+    localStorage.setItem("user", JSON.stringify(userData));
+    set({ user: userData });
+  },
 }));
 
 export default useAuthStore;

@@ -77,7 +77,7 @@ const Login = () => {
               required
             />
 
-             <Button
+            <Button
               className="mt-4"
               type="submit"
               disabled={
@@ -88,7 +88,7 @@ const Login = () => {
             </Button>
           </form>
 
-           {error && (
+          {error && (
             <p className="text-red-500 text-xs text-center mt-4">{error}</p>
           )}
 
@@ -115,6 +115,13 @@ const Login = () => {
               Continue with GitHub
             </Button>
           </div>
+
+          <Link
+            to="/forgot-password"
+            className="block text-center text-base text-gray-600 hover:text-pink-500 transition-colors mt-8"
+          >
+            Forgot password?
+          </Link>
         </div>
 
         <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-xl px-12 py-8 text-center">
@@ -127,12 +134,6 @@ const Login = () => {
               Sign up
             </Link>
           </p>
-          <Link
-            to="/forgot-password"
-            className="block text-center text-base text-gray-600 hover:text-pink-500 transition-colors mt-8"
-          >
-            Forgot password?
-          </Link>
         </div>
 
         <div className="text-center mt-8">
